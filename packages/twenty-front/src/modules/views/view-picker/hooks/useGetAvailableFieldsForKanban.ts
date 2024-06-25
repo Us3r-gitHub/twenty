@@ -31,7 +31,19 @@ export const useGetAvailableFieldsForKanban = () => {
   const navigateToSelectSettings = useCallback(() => {
     setNavigationMemorizedUrl(location.pathname + location.search);
 
-    navigate(`/settings/objects/${objectMetadataItem?.namePlural}`);
+    navigate(
+      `/settings/objects/${objectMetadataItem?.namePlural}/new-field/step-2`,
+      {
+        state: {
+          prevPath: location.pathname,
+          settingsDataModelFieldTypeSelectProps: {
+            fieldMetadataItem: {
+              type: FieldMetadataType.Select,
+            },
+          },
+        },
+      },
+    );
   }, [
     navigate,
     objectMetadataItem?.namePlural,
