@@ -59,6 +59,7 @@ export const SettingsDataModelFieldAboutForm = ({
           defaultValue={fieldMetadataItem?.label}
           render={({ field: { onChange, value } }) => (
             <TextInput
+              autoFocus
               placeholder="Employees"
               value={value}
               onChange={onChange}
